@@ -2,6 +2,7 @@ package com.example.flashlight;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
@@ -10,10 +11,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView image;
+    TextView textView;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         image = findViewById(R.id.imageView);
-
-        image.setOnClickListener(new View.OnClickListener() {
+        textView = findViewById(R.id.textView);
+        textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.closed).getConstantState())){
